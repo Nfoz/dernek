@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SarıKızlı Köyü</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SARIKIZLI KÖYÜ</h1>
+        <p>Dernek üyelerinin gelir-gider ve harcama bilgilerini takip edebilecekleri bir sitedir.</p>
+        <nav>
+            <a href="#uye-ol" id="uye-ol-link">Üye Ol</a>
+        </nav>
+    </header>
+
+    <!-- Üye Olma Formu -->
+    <section id="uye-ol" style="display: none;">
+        <h2>Üye Ol</h2>
+        <form id="register-form">
+            <label for="name">Adınız Soyadınız:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-posta Adresiniz:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Üye Ol</button>
+        </form>
+        <p id="register-message"></p>
+    </section>
+
+    <!-- Ana Sayfa İçerik -->
+    <section id="anasayfa">
+        <div class="box" id="yonetim-kurulu">
+            <h3>Yönetim Kurulu</h3>
+            <ul>
+                <li><strong>Başkan:</strong> Ahmet Yılmaz</li>
+                <li><strong>Üyeler:</strong> Ayşe Kaya, Mehmet Demir</li>
+            </ul>
+        </div>
+
+        <div class="box" id="denetim-kurulu">
+            <h3>Denetim Kurulu</h3>
+            <ul>
+                <li><strong>Başkan:</strong> Emine Şahin</li>
+                <li><strong>Üyeler:</strong> Mustafa Aydın, Zeynep Yıldız</li>
+            </ul>
+        </div>
+
+        <div class="box" id="yonetim-yedekler">
+            <h3>Yönetim Kurulu Yedekleri</h3>
+            <ul>
+                <li>Fatma Çelik</li>
+                <li>Ali Koç</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Sarıkızlı Köyü Derneği</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapor - Sarıkızlı Köyü</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Rapor</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <!-- Gelir-Gider Tablosu -->
+    <section id="rapor">
+        <h2>Gelir-Gider Tablosu</h2>
+        <table id="expenses-table">
+            <tr>
+                <th>Açıklama</th>
+                <th>Tutar (₺)</th>
+                <th>Tarih</th>
+                <th>Tür</th>
+            </tr>
+        </table>
+
+        <div id="kasa-bakiyesi">
+            <h3>Kasa Bakiyesi: <span id="balance">0 ₺</span></h3>
+        </div>
+    </section>
+
+    <!-- Yönetici Paneli -->
+    <section id="yonetici-paneli">
+        <h2>Yönetici Paneli</h2>
+        <form id="admin-login">
+            <label for="admin-password">Şifre:</label>
+            <input type="password" id="admin-password" required>
+            <button type="submit">Giriş Yap</button>
+        </form>
+
+        <div id="admin-content" style="display: none;">
+            <!-- Gelir Ekleme -->
+            <h3>Gelir Ekle</h3>
+            <form id="add-income">
+                <label for="income-description">Açıklama:</label>
+                <input type="text" id="income-description" required>
+
+                <label for="income-amount">Tutar (₺):</label>
+                <input type="number" id="income-amount" required>
+
+                <label for="income-date">Tarih:</label>
+                <input type="date" id="income-date" required>
+
+                <button type="submit">Ekle</button>
+            </form>
+
+            <!-- Gider Ekleme -->
+            <h3>Gider Ekle</h3>
+            <form id="add-expense">
+                <label for="expense-description">Açıklama:</label>
+                <input type="text" id="expense-description" required>
+
+                <label for="expense-amount">Tutar (₺):</label>
+                <input type="number" id="expense-amount" required>
+
+                <label for="expense-date">Tarih:</label>
+                <input type="date" id="expense-date" required>
+
+                <button type="submit">Ekle</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Sarıkızlı Köyü Derneği</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+#anasayfa {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#rapor table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#rapor th, #rapor td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#rapor th {
+    background-color: #f2f2f2;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+// Üye Olma
+document.getElementById('uye-ol-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('uye-ol').style.display = 'block';
+});
+
+document.getElementById('register-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    alert(`Onay linki ${email} adresine gönderildi.`);
+    document.getElementById('register-message').innerText = `Onay linki ${email} adresine gönderildi.`;
+});
+
+// Yönetici Paneli Giriş
+document.getElementById('admin-login').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const password = document.getElementById('admin-password').value;
+
+    if (password === '1234') {
+        alert('Yönetici Paneline Hoş Geldiniz!');
+        document.getElementById('admin-content').style.display = 'block';
+    } else {
+        alert('Hatalı Şifre!');
+    }
+});
+
+// Gelir-Gider İşlemleri
+let balance = 0;
+const expensesTable = document.getElementById('expenses-table').getElementsByTagName('tbody')[0];
+
+document.getElementById('add-income').addEventListener('submit', function(event) {
+    event.preventDefault();
+    addTransaction('Gelir');
+});
+
+document.getElementById('add-expense').addEventListener('submit', function(event) {
+    event.preventDefault();
+    addTransaction('Gider');
+});
+
+function addTransaction(type) {
+    const description = document.getElementById(`${type.toLowerCase()}-description`).value;
+    const amount = parseFloat(document.getElementById(`${type.toLowerCase()}-amount`).value);
+    const date = document.getElementById(`${type.toLowerCase()}-date`).value;
+
+    if (!description || !amount || !date) {
+        alert('Lütfen tüm alanları doldurun.');
+        return;
+    }
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${description}</td>
+        <td>${amount.toFixed(2)} ₺</td>
+        <td>${date}</td>
+        <td>${type}</td>
+    `;
+    expensesTable.appendChild(row);
+
+    if (type === 'Gelir') {
+        balance += amount;
+    } else {
+        balance -= amount;
+    }
+
+    document.getElementById('balance').innerText = `${balance.toFixed(2)} ₺`;
+
+    document.getElementById(`add-${type.toLowerCase()}`).reset();
+}
